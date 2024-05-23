@@ -1,52 +1,51 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Youtube Video Comment Scraper and sentiment analyser</title>
-    <link rel = "stylesheet" href = "{{url_for('static', filename = 'style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 </head>
 <body>
     <h1>Youtube Video Comment Scraping & Analysis of Positive and Negative Comments</h1><br>
-    <h>It takes approx about 5 to 6 minutes to scrap 1000 comments.<br/>
-    The application needs the calculated time to scrap the comments of the video.<br/>
-    Kindly wait for the process to finish.</h><br>
+    <p>It takes approximately 5 to 6 minutes to scrape 1000 comments.<br/>
+    The application needs this time to scrape the comments of the video.<br/>
+    Kindly wait for the process to finish.</p><br>
 
     <form method="post" action="/scrap">
-
         <br/>
-        <label>Paste your youtube video url</label><br>
-        <input type="text" name="youtube url"><br><br>
+        <label>Paste your YouTube video URL:</label><br>
+        <input type="text" name="youtube_url"><br><br>
 
-        <label>Type your e-mail id</label><br>
-        <input type="text" name="user mail id"><br><br>
+        <label>Type your e-mail ID:</label><br>
+        <input type="text" name="user_mail_id"><br><br>
 
-        <input type="submit" value="Scrap" id="scrap_button" onclick="$('#loading').show();"><br><br>
-
+        <input type="submit" value="Scrape" id="scrap_button" onclick="$('#loading').show();"><br><br>
     </form>
 
     <div id="loading">
-    <span style="--i:1">F</span>
-    <span style="--i:2">E</span>
-    <span style="--i:3">T</span>
-    <span style="--i:4">C</span>
-    <span style="--i:5">H</span>
-    <span style="--i:6">I</span>
-    <span style="--i:7">N</span>
-    <span style="--i:8">G&nbsp;</span>
-    <span style="--i:9">C</span>
-    <span style="--i:10">O</span>
-    <span style="--i:11">M</span>
-    <span style="--i:12">M</span>
-    <span style="--i:13">E</span>
-    <span style="--i:14">N</span>
-    <span style="--i:15">T</span>
-    <span style="--i:16">S</span>
-    <span style="--i:17">.</span>
-    <span style="--i:18">.</span>
-    <span style="--i:19">.</span>
-    <span style="--i:20">.</span></div>
-
+        <span style="--i:1">F</span>
+        <span style="--i:2">E</span>
+        <span style="--i:3">T</span>
+        <span style="--i:4">C</span>
+        <span style="--i:5">H</span>
+        <span style="--i:6">I</span>
+        <span style="--i:7">N</span>
+        <span style="--i:8">G&nbsp;</span>
+        <span style="--i:9">C</span>
+        <span style="--i:10">O</span>
+        <span style="--i:11">M</span>
+        <span style="--i:12">M</span>
+        <span style="--i:13">E</span>
+        <span style="--i:14">N</span>
+        <span style="--i:15">T</span>
+        <span style="--i:16">S</span>
+        <span style="--i:17">.</span>
+        <span style="--i:18">.</span>
+        <span style="--i:19">.</span>
+        <span style="--i:20">.</span>
+    </div>
 
     <br>
     {% if after_complete_message %}
@@ -65,7 +64,7 @@
             <table>
                 <tr>
                     {% for pos_comments in pos_comments_csv %}
-                    {{ pos_comments | safe}}
+                    {{ pos_comments | safe }}
                     {% endfor %}
                 </tr>
             </table><br>
@@ -78,7 +77,7 @@
             <table>
                 <tr>
                     {% for neg_comments in neg_comments_csv %}
-                    {{ neg_comments | safe}}
+                    {{ neg_comments | safe }}
                     {% endfor %}
                 </tr>
             </table><br>
